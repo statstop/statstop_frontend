@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MainNav from './MainNav';
-import NavBar from './NavBar';
-import Cricket from './Cricket';
-import FootBall from './FootBall';
-import BasketBall from './BasketBall';
-import ThrowBall from './ThrowBall';
+import MainNav from './components/MainNav';
+import NavBar from './components/NavBar';
+import Cricket from './components/Cricket';
+import FootBall from './components/FootBall';
+import BasketBall from './components/BasketBall';
+import ThrowBall from './components/ThrowBall';
+import CricketScorecard from './components/CricketScorecard';
 function App() {
   const [ game, setGame ] = useState('cricket')
   return (
