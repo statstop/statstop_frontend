@@ -1,0 +1,9 @@
+---
+- name: Pull docker image from dockerhub
+  hosts: all
+  tasks:
+    - name: Pull docker image
+      docker_image:
+        name: statstop/statstop_frontend
+        source: pull
+    
