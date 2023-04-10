@@ -6,4 +6,8 @@
       docker_image:
         name: statstop/statstop_frontend
         source: pull
+    - name: Remove already created container
+      shell: docker rm statstop_frontend
+    - name: create and run container
+      shell: docker run -it --name statstop_frontend statstop/statstop_frontend
     
