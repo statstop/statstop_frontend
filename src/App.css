@@ -1,3 +1,13 @@
+.abc {
+  margin: 1cm;
+}
+.table td {
+  text-align: left;
+  } 
+.table th {
+  text-align: left;
+  } 
+
 .App {
   text-align: center;
 }

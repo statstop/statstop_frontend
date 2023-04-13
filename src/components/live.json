@@ -1,0 +1,37 @@
+{
+    "id": null,
+    "ballNo": 1,
+    "overNo": 1,
+    "gameId": {
+        "gameId": 1,
+        "team1": 1,
+        "team1Score": null,
+        "team2": 2,
+        "team2Score": null,
+        "winnerTeam": null,
+        "remarks": null
+    },
+    "teamId": {
+        "teamId": 1,
+        "teamName": "Team1",
+        "players": null
+    },
+    "bowler": {
+        "playerId": 12,
+        "name": "Kheladi1"
+    },
+    "batter1": {
+        "playerId": 1,
+        "name": "Player1"
+    },
+    "batter1Run": 0,
+    "batter2": {
+        "playerId": 2,
+        "name": "Player2"
+    },
+    "batter2Run": 0,
+    "wicket": 0,
+    "runScoredThisBall": 1,
+    "totalScore": 1,
+    "totalWickets": 0
+}
