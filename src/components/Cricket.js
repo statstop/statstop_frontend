@@ -1,6 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import livescore from './live.json';
+import Table from "react-bootstrap/Table";
 
 function Cricket() {
   return (
@@ -11,9 +13,41 @@ function Cricket() {
           <Card>
             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body >
-              <Card.Title href="#">RCB VS MI</Card.Title>
+              <Card.Title href="#">{livescore.teamId.teamName} VS {livescore.teamId.teamName}</Card.Title>
               <Card.Text>
-               Will start at 2nd April,7:00 pm IST
+                 <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Batter</th>
+              <th></th>
+              <th>Run</th>
+              <th>Ball</th>
+              <th>4s</th>
+              <th>6s</th>
+              <th>SR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{livescore.batter1.name}</td>
+              <td>c stonis b Amit Mishra</td>
+              <td>{livescore.batter1Run}</td>
+              <td>44</td>
+              <td>4</td>
+              <td>4</td>
+              <td>138.64</td>
+            </tr>
+            <tr>
+              <td>{livescore.batter2.name}</td>
+              <td>not out</td>
+              <td>{livescore.batter2Run}</td>
+              <td>46</td>
+              <td>5</td>
+              <td>5</td>
+              <td>171.74</td>
+            </tr>          
+              </tbody>
+              </Table>
               </Card.Text>
             </Card.Body>
           </Card>
