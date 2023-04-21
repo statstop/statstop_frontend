@@ -9,14 +9,23 @@ import FootBall from './components/FootBall';
 import BasketBall from './components/BasketBall';
 import ThrowBall from './components/ThrowBall';
 import CricketScorecard from './components/CricketScorecard';
+import cricketService from './services/cricketService'
 function App() {
   const [ game, setGame ] = useState('cricket')
+  const [ games, setGames ] = useState([])
+  useEffect(() => {
+    async function fetchgames() {
+        const games = await cricketService.getGames()
+        setGames(games)
+      }
+    fetchgames()
+  },[])
   return (
     <div className="App">
      <MainNav></MainNav>
      <NavBar game={game} setGame={setGame}></NavBar>
      {
-      game==='cricket' && <Cricket></Cricket>
+      game==='cricket' && <Cricket games={games}></Cricket>
      }
      {
       game==='football' && <FootBall></FootBall>

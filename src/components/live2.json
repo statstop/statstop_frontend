@@ -1,0 +1,29 @@
+[
+    {
+        "gameId": 1,
+        "team1": {
+            "teamId": 1,
+            "teamName": "Team1",
+            "players": null
+        },
+        "team1Score": 0,
+        "team1Wickets": 0,
+        "team2": {
+            "teamId": 2,
+            "teamName": "Team2",
+            "players": null
+        },
+        "team2Score": 0,
+        "team2Wickets": 0,
+        "winnerTeam": null,
+        "remarks": null,
+        "team1overs": 0,
+        "team2overs": 0,
+        "team1ball": 0,
+        "team2ball": 0,
+        "totalOvers": 6,
+        "firstInnings": 1,
+        "date": "2022-04-11T00:00:00.000+00:00",
+        "gameLevel": null
+    }
+]
