@@ -17,8 +17,30 @@ function Cricket({games}) {
           <Card>
             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body >
-              <Card.Title href="#">{game.team1.teamName} VS {game.team2.teamName}</Card.Title>
-              <Card.Text>{game.team1Score}/{game.team1Wickets}</Card.Text>
+              {/* <Card.Title href="#">{game.gameLevel}</Card.Title>
+              <Card.Title href="#">{game.team1.teamName} {game.team1Score}/{game.team1Wickets} </Card.Title>
+              <Card.Title href="#">{game.team2.teamName} {game.team2Score}/{game.team2Wickets}</Card.Title>
+              <Card.Text></Card.Text> */}
+              <Table>
+                  <tr>
+                    <td>{game.gameLevel}</td>
+                  </tr>
+                {/* <tbody> */}
+                  <tr>
+                    <td>{game.team1.teamName}</td>
+                    <td>{game.team1Score}/{game.team1Wickets}</td>
+                    <td>{game.team1overs>0?(game.team1overs-1):game.team1overs}.{game.team1ball}/{game.totalOvers}</td>
+                  </tr>
+                  <tr>
+                    <td>{game.team2.teamName}</td>
+                    <td>{game.team2Score}/{game.team2Wickets}</td>
+                    <td>{game.team1overs>0?(game.team1overs-1):game.team1overs}.{game.team2ball}/{game.totalOvers}</td>
+                  </tr>
+                  <tr>
+                    <td>{game.remarks}</td>
+                  </tr>
+                {/* </tbody> */}
+              </Table>
             </Card.Body>
           </Card>
         </div>
