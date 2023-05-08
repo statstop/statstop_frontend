@@ -10,6 +10,8 @@ function Cricket({games}) {
   
   // {console.log(games[0].gameId);}
   return (
+    <div class="cards">
+
     <Row xs={1} md={2} className="g-4">
       {games.map((game, idx) => (
         <Col>
@@ -47,6 +49,7 @@ function Cricket({games}) {
         </Col>
       ))}
     </Row>
+    </div>
   );
 }
 

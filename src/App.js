@@ -27,19 +27,29 @@ function App() {
     }, 3000)
   }
 
-  const handleLogin = async (credentials) => {
+  const handleLogin = async (loginCredentials) => {
     try {
-      const userObject = await loginService.login(credentials)
-      setUser(userObject)
-      window.localStorage.setItem('loggedInUser', JSON.stringify(userObject))
-      return true;
-          }
+      const userObject = await loginService.login(loginCredentials)
+      if (userObject) {
+        setUser(userObject)
+        window.localStorage.setItem('sessionUser', JSON.stringify(userObject))
+      }
+      else {
+        alert("Log in failed, check username and password entered")
+      }
+
+    }
     catch (exception) {
-      notificationHandler(`Invalid Email or Password`, 'error')
-      return false;
+      alert("Log in failed, check username and password entered")
     }
   }
-
+  useEffect(() => {
+    const sessionUser = window.localStorage.getItem('sessionUser')
+    if (sessionUser)
+      setUser(JSON.parse(sessionUser))
+    else
+      setUser(null)
+  }, [])
   return (
     <BrowserRouter>
     
@@ -55,7 +65,7 @@ function App() {
           {user != null && (
             <Route
               path="/admin"
-              element={<Admin/>}
+              element={<Admin user={user} setUser={setUser}/>}
             />
           )}
           {user === null && (
