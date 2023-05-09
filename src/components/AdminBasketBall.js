@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Notification from './Notification.js'
+import Notification from "./Notification.js";
 import "./css/Admin.css";
 import * as React from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import basketballService from "../services/basketballService"
+import basketballService from "../services/basketballService";
 
-function AdminBasketBall({games,teams}) {
+function AdminBasketBall({ games, teams }) {
   const [notification, setNotification] = useState(null);
   const [notificationType, setNotificationType] = useState(null);
   const [value, setValue] = useState(null);
@@ -27,29 +27,34 @@ function AdminBasketBall({games,teams}) {
     setValue(selectedGame);
   };
   const handleUpdateTeamChange = (event) => {
-    setSelectTeam((event.target.value));
+    setSelectTeam(event.target.value);
   };
   const handleUpdateGame = (event) => {
     event.preventDefault();
-    
-    basketballService.updateGame(value.gameId,parseInt(selectTeam),parseInt(points));
-    notificationHandler(`success`,`error`)
+
+    basketballService.updateGame(
+      value.gameId,
+      parseInt(selectTeam),
+      parseInt(points)
+    );
+    notificationHandler(`Score Updated`,`success`)
   };
   const notificationHandler = (message, type) => {
-    setNotification(message)
-    setNotificationType(type)
+    setNotification(message);
+    setNotificationType(type);
 
     setTimeout(() => {
-      setNotificationType(null)
-      setNotification(null)
-    }, 3000)
-  }
+      setNotificationType(null);
+      setNotification(null);
+    }, 3000);
+  };
   const handleAddteam = (event) => {
     event.preventDefault();
     console.log(addteamdata);
     basketballService.addTeam(addteamdata);
-    window.location.reload(true)
+    notificationHandler(`Team Added`, `success`);
 
+    window.location.reload(true);
   };
   const handleTeamChange = (event) => {
     const fiendvalue = event.target.value;
@@ -71,8 +76,9 @@ function AdminBasketBall({games,teams}) {
     };
     console.log(newGame);
     basketballService.addGame(newGame);
-    window.location.reload(true)
+    notificationHandler(`Game Added`,`success`)
 
+    window.location.reload(true);
   };
   const handleTeam1Change = (event) => {
     const selectedIndex = event.target.selectedIndex;
@@ -98,9 +104,11 @@ function AdminBasketBall({games,teams}) {
   };
   return (
     <>
- <form class="last" onSubmit={handleUpdateGame}>
- <div class="headgame">
-        <h3>Select BasketBall Game</h3>
+          <Notification notification={notification} type={notificationType} />
+
+      <form class="last" onSubmit={handleUpdateGame}>
+        <div class="headgame">
+          <h3>Select BasketBall Game</h3>
         </div>
         <select
           class="select1"
@@ -134,7 +142,12 @@ function AdminBasketBall({games,teams}) {
           />
         </RadioGroup>
         <div class="txt_field">
-          <input type="text" name="runScored" required="required" onChange={handlePointsScoredChange}></input>
+          <input
+            type="text"
+            name="runScored"
+            required="required"
+            onChange={handlePointsScoredChange}
+          ></input>
           <span></span>
           <label>Enter Points Scored</label>
         </div>
@@ -142,7 +155,6 @@ function AdminBasketBall({games,teams}) {
           <input type="submit" value="Update"></input>
         </div>
       </form>
-      <Notification notification={notification} type={notificationType} />  
       <form class="addTeam" onSubmit={handleAddteam}>
         <div class="txt_field">
           <input
@@ -209,7 +221,7 @@ function AdminBasketBall({games,teams}) {
           <input type="submit" value="Add Game"></input>
         </div>
       </form>
-        </>
+    </>
   );
 }
 
