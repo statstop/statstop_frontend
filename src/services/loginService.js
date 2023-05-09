@@ -1,5 +1,5 @@
 import axios from 'axios'
-const loginBaseUrl = `http://${BE_IP}:8085/cricket/login`
+const loginBaseUrl = `http://localhost:8085/cricket/login`
 
 const login = async (credentials) => {
   
