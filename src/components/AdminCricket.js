@@ -72,6 +72,10 @@ function AdminCricket({ games, teams }) {
     event.preventDefault();
     console.log(addteamdata);
     cricketService.addTeam(addteamdata);
+    notificationHandler(`Team Added`)
+    window.location.reload(true)
+
+
   };
   const handleAddGame = (event) => {
     event.preventDefault();
@@ -84,6 +88,9 @@ function AdminCricket({ games, teams }) {
     };
     console.log(newGame);
     cricketService.addGame(newGame);
+    notificationHandler(`Game Added`,`success`)
+    window.location.reload(true)
+
   };
   const handleUpdateGame = (event) => {
     event.preventDefault();
@@ -94,7 +101,7 @@ function AdminCricket({ games, teams }) {
       team: parseInt(battingTeam)
     };
     console.log(updateGame);
-    notificationHandler(`success`,`error`)
+    notificationHandler(`Score Updated`,`success`)
     cricketService.updateGame(updateGame);
   };
   const handleUpdateTeamChange = (event) => {
@@ -114,6 +121,8 @@ function AdminCricket({ games, teams }) {
   }
   return (
     <>
+        
+       <Notification notification={notification} type={notificationType} />
       <form class="last" onSubmit={handleUpdateGame}>
       <div class="headgame">
         <h3>Select Cricket Game</h3>
@@ -172,7 +181,6 @@ function AdminCricket({ games, teams }) {
           <input type="submit" value="Update"></input>
         </div>
       </form>
-      <Notification notification={notification} type={notificationType} />
       <form class="addTeam" onSubmit={handleAddteam}>
         <div class="txt_field">
           <input

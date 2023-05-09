@@ -36,7 +36,7 @@ function Cricket({games}) {
                   <tr>
                     <td>{game.team2.teamName}</td>
                     <td>{game.team2Score}/{game.team2Wickets}</td>
-                    <td>{game.team1overs>0?(game.team1overs-1):game.team1overs}.{game.team2ball}/{game.totalOvers}</td>
+                    <td>{game.team2overs>0?(game.team2overs-1):game.team2overs}.{game.team2ball}/{game.totalOvers}</td>
                   </tr>
                   <tr>
                     <td>{game.remarks}</td>

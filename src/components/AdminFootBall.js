@@ -32,7 +32,7 @@ function AdminFootBall({games,teams}) {
     event.preventDefault();
     
     footballService.updateGame(value.gameId,parseInt(selectTeam));
-    notificationHandler(`success`,`error`)
+    notificationHandler(`Score Updated`,`success`)
   };
   const notificationHandler = (message, type) => {
     setNotification(message)
@@ -47,6 +47,8 @@ function AdminFootBall({games,teams}) {
     event.preventDefault();
     console.log(addteamdata);
     footballService.addTeam(addteamdata);
+    notificationHandler(`Team Added`,`success`)
+
     window.location.reload(true)
 
   };
@@ -70,6 +72,8 @@ function AdminFootBall({games,teams}) {
     };
     console.log(newGame);
     footballService.addGame(newGame);
+    notificationHandler(`Game Added`,`success`)
+
     window.location.reload(true)
   };
   const handleTeam1Change = (event) => {
@@ -92,6 +96,8 @@ function AdminFootBall({games,teams}) {
   };
   return (
     <>
+          <Notification notification={notification} type={notificationType} />  
+
  <form class="last" onSubmit={handleUpdateGame}>
         <div class="headgame">
         <h3>Select FootBall Game</h3>
@@ -132,7 +138,6 @@ function AdminFootBall({games,teams}) {
           <input type="submit" value="Update"></input>
         </div>
       </form>
-      <Notification notification={notification} type={notificationType} />  
       <form class="addTeam" onSubmit={handleAddteam}>
         <div class="txt_field">
           <input
